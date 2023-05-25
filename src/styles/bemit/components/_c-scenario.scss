@@ -1,0 +1,17 @@
+.c-scenario{
+    @apply  bg-white rounded  p-4 w-full mt-4;
+    &__title{
+        @apply text-xl font-bold;
+        color: $main-color-dark1;
+        .dark &{
+            color: $font-dark;
+        }
+    }
+    &__subtitle{
+        @apply text-lg font-bold;
+        color: $main-color-dark1;
+        .dark &{
+            color: $font-dark;
+        }
+    }
+}

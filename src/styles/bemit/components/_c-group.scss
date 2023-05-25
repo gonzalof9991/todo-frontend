@@ -1,0 +1,12 @@
+.c-group {
+    @apply bg-white flex justify-between items-center rounded shadow;
+    &__content {
+    }
+    &__item {
+    }
+    &__label {
+        .dark & {
+            color: $font-dark;
+        }
+    }
+}

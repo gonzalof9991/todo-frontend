@@ -1,0 +1,217 @@
+.c-button {
+    @apply py-4 px-4  text-center rounded flex justify-center items-center text-md shadow;
+
+    /**------------------------------------*\
+        #Modifiers
+    \*------------------------------------*/
+
+    /*------------------------------------*\
+        #Sizes
+    \*------------------------------------*/
+
+    &--xs {
+        @apply text-md w-30;
+    }
+
+    &--sm {
+        @apply text-md w-30 h-10;
+    }
+
+    &--md {
+        @apply text-md w-50 h-12;
+    }
+
+    &--lg {
+        @apply text-lg w-80 h-14;
+    }
+
+    &--xl {
+        @apply text-xl w-80 h-16;
+    }
+
+    &--xxl {
+        @apply text-2xl w-80 h-20;
+    }
+
+    /*------------------------------------*\
+        #Colors
+    \*------------------------------------*/
+    &--bg-outline {
+        background: $color-white;
+        border: 2px solid $main-color-dark1;
+        .dark & {
+            background: none !important;
+            border: 2px solid $main-color-dark1;
+        }
+    }
+
+    &--bg-secundary {
+        background: none;
+        border: 1px solid $gray-100;
+        transition: $transition-button;
+        .dark & {
+            border: 1px solid $gray-300;
+        }
+    }
+
+    &--bg-secundary:hover {
+        @apply bg-gray-100;
+        .dark & {
+            background: $bg-dark-transparent;
+        }
+    }
+
+    &--bg-primary {
+        background: $main-color-dark1;
+        transition: $transition-button;
+        .dark & {
+            background: $main-color-dark1;
+        }
+    }
+
+    &--bg-primary:hover {
+        background: $primary-hover;
+        .dark & {
+            background: $primary-hover;
+        }
+    }
+    &--bg-primary-gradient {
+        background: $color-primary-gradient;
+        .dark & {
+            background: $bg-dark-gradient;
+        }
+    }
+
+    &--bg-green-500 {
+        @apply bg-green-500;
+        .dark & {
+            background: $color-green-dark;
+        }
+    }
+
+    &--bg-green-600 {
+        @apply bg-green-600;
+        .dark & {
+            background: $color-green-dark;
+        }
+    }
+
+    &--bg-white {
+        @apply bg-white;
+        .dark & {
+            @apply bg-gray-800;
+        }
+    }
+
+    &--bg-blue-200 {
+        @apply bg-blue-200;
+    }
+
+    &--bg-red-700 {
+        @apply bg-red-700;
+    }
+
+    &--bg-red-delete {
+        background: $red-600;
+    }
+
+    &--bg-red-600 {
+        @apply bg-red-600;
+        transition: $transition-button;
+        .dark & {
+            @apply bg-red-700;
+        }
+    }
+
+    &--bg-red-600:hover {
+        @apply bg-red-700;
+        .dark & {
+            @apply bg-red-600;
+        }
+    }
+
+    &--bg-gray-400 {
+        @apply bg-gray-400;
+        .dark & {
+            @apply bg-gray-700;
+        }
+    }
+
+    &--bg-gray-100 {
+        @apply bg-gray-100;
+    }
+
+    &--shadow-md {
+        @apply shadow-md;
+    }
+
+    &--shadow-none {
+        box-shadow: none;
+    }
+
+    &--opacity-60 {
+        @apply opacity-60;
+        .dark & {
+            @apply opacity-80;
+        }
+    }
+
+    &--rounded-md {
+        @apply rounded-md;
+    }
+
+    &--rounded-full {
+        @apply rounded-full;
+    }
+
+    &--disabled {
+        @apply opacity-25 cursor-not-allowed;
+    }
+
+    /* *------------------------------------*\
+        #Elements
+    \*------------------------------------*/
+    &__icon {
+        color: $color-white;
+    }
+    &__icon--blue {
+        color: $main-color-dark1;
+        .dark & {
+            color: $color-white;
+        }
+    }
+
+    &__icon--dark {
+        .dark & {
+            @apply text-white;
+        }
+    }
+
+    &__label {
+        color: $color-white;
+    }
+    &__label--text-blue {
+        color: $main-color-dark1;
+        .dark & {
+            color: $color-white;
+        }
+    }
+    &__label--text-blue-200 {
+        color: #353c44;
+    }
+
+    &__label--text-black {
+        @apply text-black;
+        .dark & {
+            @apply text-white;
+        }
+    }
+
+    &__label--font-bold {
+        @apply font-bold;
+    }
+
+    &__label--font-medium {
+        @apply font-medium;
+    }
+}

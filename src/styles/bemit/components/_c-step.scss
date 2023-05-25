@@ -1,0 +1,36 @@
+.c-step {
+    @apply bg-white rounded p-6;
+    .dark & {
+        background-color: $bg-dark !important;
+    }
+    &__title {
+        color: $main-color-dark1;
+        .dark & {
+            color: $font-dark;
+        }
+        &--text-lg {
+            @apply text-lg;
+        }
+        &--text-xl {
+            @apply text-xl;
+        }
+        &--font-bold {
+            @apply font-bold;
+        }
+    }
+    &__subtitle {
+        color: $main-color-dark1;
+        .dark & {
+            color: $font-dark;
+        }
+        &--font-bold {
+            @apply font-bold;
+        }
+    }
+    &__paragraph {
+        color: $main-color-dark1;
+        .dark & {
+            color: $font-dark;
+        }
+    }
+}

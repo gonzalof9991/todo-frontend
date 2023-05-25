@@ -1,0 +1,133 @@
+.bg-white {
+    .dark & {
+        background-color: $bg-dark !important;
+    }
+}
+
+.u-c-button--bg-white {
+    @apply bg-white;
+    .dark & {
+        background: $main-color-dark1 !important;
+    }
+}
+
+.u-c-button--bg-red-700 {
+    background: $color-red-700 !important;
+}
+
+.u-bg-green-600 {
+    background-color: $bg-green-600 !important;
+    .dark & {
+        background-color: $color-green-dark !important;
+    }
+}
+
+.u-bg-primary {
+    background: $main-color-dark1 !important;
+    .dark & {
+        background: $main-color-dark1 !important;
+    }
+}
+
+
+
+.u-bg-primary-gradient {
+    background: $color-primary-gradient !important;
+    .dark & {
+        background: $bg-dark-gradient !important;
+    }
+}
+
+.u-bg-outline {
+    background: $color-white;
+    border: 2px solid $main-color-dark1 !important;
+    .dark {
+        background: none !important;
+        border: 2px solid $color-white !important;
+    }
+}
+
+.u-c-button--bg-primary-gradient {
+    background: $color-primary-gradient !important;
+    .dark & {
+        background: $bg-dark-gradient !important;
+    }
+}
+
+.u-text-blue {
+    color: $main-color-dark1;
+    .dark & {
+        color: $font-dark;
+    }
+}
+
+.u-text-normal {
+    .dark & {
+        color: $font-dark;
+    }
+}
+
+.u-h {
+    &-120-px {
+        height: 120px !important;
+    }
+}
+
+.u-py-3 {
+    padding-top: 0.75rem !important;
+    padding-bottom: 0.75rem !important;
+}
+
+.u-opacity-none {
+    opacity: 1 !important;
+}
+
+.u-max-content {
+    width: max-content !important;
+}
+
+.u-h-95-px {
+    height: 95px !important;
+}
+.u-h-88-px {
+    height: 88px !important;
+}
+
+.u-icon-3x {
+    transform: scale(1.6);
+}
+
+/*----------------------------------------------------------------------------------------------------*\
+    #Reset Class Angular Material
+\*----------------------------------------------------------------------------------------------------*/
+
+.mat-filter {
+    .dark & {
+        background: $bg-dark-light !important;
+    }
+}
+
+.mat-checkbox-checked {
+    .mat-checkbox-background {
+        .dark & {
+            background: $bg-checkbox-dark !important;
+        }
+    }
+}
+
+.mat-stepper-vertical {
+    .dark & {
+        background: $bg-dark !important;
+    }
+}
+
+.mat-step .mat-step-header .mat-step-icon-selected {
+    .dark & {
+        background-color: $main-color-dark1 !important;
+    }
+}
+
+.mat-form-field.mat-form-field-appearance-fill .mat-form-field-wrapper {
+    margin-bottom: 0;
+    padding-bottom: 0;
+}

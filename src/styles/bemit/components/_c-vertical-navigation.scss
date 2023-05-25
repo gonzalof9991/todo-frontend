@@ -1,0 +1,6 @@
+.c-vertical-navigation{
+    @apply bg-white;
+    .dark &{
+        background-color: $bg-dark;
+    }
+}

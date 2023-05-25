@@ -1,0 +1,22 @@
+.c-snackbar {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    background: $color-white !important;
+    padding: 8px 10px !important;
+    .dark & {
+        background-color: $bg-dark !important;
+    }
+
+    &__label {
+        &--font-medium {
+            @apply font-medium;
+        }
+        &--text-gray-700 {
+            @apply text-gray-700;
+            .dark & {
+                color: $font-dark;
+            }
+        }
+    }
+}

@@ -1,0 +1,35 @@
+.c-modal {
+    @apply bg-white rounded-2xl;
+    .dark & {
+        background: $bg-dark-light;
+    }
+    &__title {
+        color: $main-color-dark1;
+        .dark & {
+            color: $font-dark;
+        }
+
+        &--text-blue {
+            color: $main-color-dark1;
+            .dark & {
+                color: $font-dark;
+            }
+        }
+        &--font-bold {
+            @apply font-bold;
+        }
+    }
+
+    &__content {
+    }
+
+    &__actions {
+        &--py-3 {
+            padding: 0.75rem 0 !important;
+        }
+    }
+
+    .mat-dialog-container {
+        padding: 0 24px !important;
+    }
+}
