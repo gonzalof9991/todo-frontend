@@ -1,0 +1,33 @@
+.c-table {
+    @apply w-full cursor-pointer;
+    .dark & {
+        .mat-row:hover {
+            background-color: $bg-dark;
+        }
+    }
+    &--bg-row-hover {
+        .mat-row:hover {
+            background-color: $color-gray;
+        }
+    }
+    &--mat-cell-font-12 {
+        .mat-cell {
+            font-size: 12px;
+        }
+    }
+
+    &--border-hidden {
+        .mat-row {
+            border-style: hidden;
+        }
+    }
+
+    &--bg-row-even {
+        .mat-row:nth-child(even) {
+            background-color: $color-gray-2;
+            .dark & {
+                background-color: $bg-dark;
+            }
+        }
+    }
+}

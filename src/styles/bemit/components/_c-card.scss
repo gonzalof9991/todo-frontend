@@ -1,0 +1,73 @@
+.c-card {
+    @apply bg-white rounded cursor-pointer;
+
+    /*------ Modifiers ------*/
+    height: max-content;
+    .dark & {
+        color: $font-dark;
+        background-color: $bg-dark-light;
+    }
+
+    &--h-40 {
+        @apply h-40;
+    }
+
+    /*------ Elements ------*/
+    &__label {
+        @apply text-md font-normal;
+        &--mr-3 {
+            @apply mr-3;
+        }
+
+        &--text-lg {
+            @apply text-lg;
+        }
+
+        &--text-xl {
+            @apply text-xl;
+        }
+        &--text-2xl {
+            @apply text-2xl;
+        }
+
+        &--text-3xl {
+            @apply text-3xl;
+        }
+
+        &--text-4xl {
+            @apply text-4xl;
+        }
+
+        &--text-6xl {
+            @apply text-6xl;
+        }
+
+        &--text-orange-500 {
+            @apply text-orange-500;
+        }
+        &--text-blue {
+            color: $main-color-dark1;
+            .dark & {
+                color: $font-dark;
+            }
+        }
+        &--font-bold {
+            @apply font-bold;
+        }
+        &--font-semibold {
+            @apply font-semibold;
+        }
+    }
+
+    &__icon {
+        &--text-blue {
+            color: $main-color-dark1;
+            .dark & {
+                color: $font-dark;
+            }
+        }
+    }
+    &:hover {
+        @apply bg-gray-50;
+    }
+}
