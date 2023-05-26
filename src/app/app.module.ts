@@ -4,6 +4,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import {SharedModule} from "../shared/shared.module";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {TaskComponent} from "../shared/components/task/task.component";
+import {ContentComponent} from "../shared/components/content/content.component";
 
 @NgModule({
   declarations: [
@@ -12,7 +14,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   imports: [
     BrowserModule,
     SharedModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    TaskComponent,
+    ContentComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
