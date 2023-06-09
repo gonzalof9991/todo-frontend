@@ -26,7 +26,8 @@
             ],
             "styles": [
               "@angular/material/prebuilt-themes/indigo-pink.css",
-              "src/styles.css"
+              "src/styles/tailwind.scss",
+              "src/styles/main.scss"
             ],
             "scripts": []
           },
@@ -89,8 +90,7 @@
             ],
             "styles": [
               "@angular/material/prebuilt-themes/indigo-pink.css",
-              "node_modules/tailwindcss/dist/tailwind.min.css",
-              "src/styles.css",
+              "src/styles/tailwind.scss",
               "src/styles/main.scss"
             ],
             "scripts": [
