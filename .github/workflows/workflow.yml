@@ -1,4 +1,4 @@
-name: Angular CI
+name: CI workflow
 
 on:
   push:
