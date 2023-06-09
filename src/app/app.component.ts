@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ITask} from "../shared/components/task/task.interface";
 import { HttpClient } from '@angular/common/http';
+import {taskMock} from "../mock/task";
 
 @Component({
   selector: 'app-root',
@@ -18,15 +19,6 @@ export class AppComponent implements OnInit{
   }
 
   ngOnInit() {
-    // get data from backend
-    this._http.get('http://127.0.0.1:5000/tasks',{
-      headers: {
-        'Content-Type': 'application/json',
-      }
-    }).subscribe((data: any) => {
-      console.log(data);
-      this.tasks = data;
-    });
-    
+    this.tasks = taskMock;
   }
 }
