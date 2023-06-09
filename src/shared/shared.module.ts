@@ -8,6 +8,12 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {PipeModule} from "./pipes/pipe.module";
 import {MatButtonModule} from "@angular/material/button";
+import { MatFormFieldModule } from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatSelectModule} from '@angular/material/select';
+import {MatDividerModule} from '@angular/material/divider';
+import {MatChipsModule} from '@angular/material/chips';
 @NgModule({
   imports: [
 
@@ -21,7 +27,13 @@ import {MatButtonModule} from "@angular/material/button";
     MatIconModule,
     MatCheckboxModule,
     MatButtonModule,
-    PipeModule
+    PipeModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatDatepickerModule,
+    MatSelectModule,
+    MatDividerModule,
+    MatChipsModule
   ]
 })
 export class SharedModule { }

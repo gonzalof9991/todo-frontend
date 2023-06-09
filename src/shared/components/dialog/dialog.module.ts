@@ -1,10 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {DialogComponent} from "./dialog.component";
-import {FormsModule} from "@angular/forms";
-import {MatFormFieldModule} from "@angular/material/form-field";
-import {MatButtonModule} from "@angular/material/button";
-import {MatDialogModule} from "@angular/material/dialog";
+import { SharedModule } from 'src/shared/shared.module';
+import {  MatDialogModule } from '@angular/material/dialog';
 
 
 @NgModule({
@@ -12,10 +10,7 @@ import {MatDialogModule} from "@angular/material/dialog";
     DialogComponent
   ],
   imports: [
-    CommonModule,
-    FormsModule,
-    MatFormFieldModule,
-    MatButtonModule,
+    SharedModule,
     MatDialogModule
   ],
   exports: [

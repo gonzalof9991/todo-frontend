@@ -15,12 +15,12 @@
         <div class="flex justify-start items-center mr-2">
           <mat-icon class="mr-1 text-blue-800 scale-90">schedule</mat-icon>
           <span class="text-xs font-medium">{{
-            task.estimate
+            task.estimated_time
             }} min</span>
         </div>
         <div class="flex justify-start items-center gap-1">
                   <span *ngFor="let category of task.categories"
-                        class=" text-white text-xs px-2 py-1 font-medium rounded-lg" [ngClass]="category.classes">{{
+                        class=" text-white text-xs px-2 py-1 font-medium rounded-lg bg-indigo-800">{{
                     category.name
                     }}</span>
 

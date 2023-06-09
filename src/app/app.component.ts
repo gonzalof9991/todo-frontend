@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import tasks from "../mock/task";
 import {ITask} from "../shared/components/task/task.interface";
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
@@ -11,12 +11,22 @@ export class AppComponent implements OnInit{
   title = 'frontend';
   public tasks: ITask[] = [];
 
-  constructor() {
+  constructor(
+    private _http: HttpClient
+  ) {
 
   }
 
   ngOnInit() {
-    this.tasks = tasks
-    console.log(this.tasks)
+    // get data from backend
+    this._http.get('http://127.0.0.1:5000/tasks',{
+      headers: {
+        'Content-Type': 'application/json',
+      }
+    }).subscribe((data: any) => {
+      console.log(data);
+      this.tasks = data;
+    });
+    
   }
 }

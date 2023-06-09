@@ -1,4 +1,4 @@
-import {Component, Input, ViewEncapsulation} from '@angular/core';
+import {Component, Input, Output, ViewEncapsulation} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {ITask} from "./task.interface";
 import {MatIconModule} from "@angular/material/icon";
@@ -22,6 +22,7 @@ import {DialogModule} from "../dialog/dialog.module";
 })
 export class TaskComponent {
   @Input() task!: ITask;
+  @Output() public changeTask: any;
   public showButton: boolean = false;
   constructor(
     private _dialog: MatDialog
@@ -44,8 +45,7 @@ export class TaskComponent {
 
     this.changeType('doing');
     this.showButton = false;
-    console.log('go to task');
-    console.log(this.task);
+  
   }
 
   public changeType(type: 'todo' | 'doing' | 'done'): void {
@@ -53,11 +53,17 @@ export class TaskComponent {
   }
 
   public openDialog(): void {
-    console.log('open dialog');
-    console.log(this.task);
+    const task = {...this.task};
     const dialogRef = this._dialog.open(DialogComponent, {
-      width: '750px',
-      data: {task: this.task}
+      width: '900px',
+      data: task
+    });
+
+    dialogRef.afterClosed().subscribe(res => {
+      if (res.data) {
+        this.task = res.data;
+      }
+    
     });
 
     }
