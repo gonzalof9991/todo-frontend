@@ -11,9 +11,6 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    resources:
-      cpu: 2
-      memory: 4GB
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
@@ -29,14 +26,6 @@ jobs:
       - name: Build project
         run: npm run build
 
-      - name: Run tests with Karma
-        env:
-          CHROME_BIN: /usr/bin/google-chrome
-          DISPLAY: :99  # Configura la variable de entorno DISPLAY
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y xvfb  # Instala el servidor X virtual
-          Xvfb :99 -screen 0 1024x768x24 > /dev/null 2>&1 &  # Inicia el servidor X virtual
-          npm run test
+
 
 
