@@ -26,15 +26,9 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Install Google Chrome
-        run: |
-          wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-          dpkg -i google-chrome-stable_current_amd64.deb
-          apt-get -f install
-
       - name: Build project
         run: npm run build
 
       - name: Run tests
-        run: npm run test
+        run: ng test --watch=false --browsers=ChromeHeadless
 

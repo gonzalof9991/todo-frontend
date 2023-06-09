@@ -34,6 +34,7 @@ describe('AppComponent', () => {
     expect(component.title).toEqual('frontend');
   });
   it('should create the app', () => {
+    console.log('Hola Mundo');
     expect(component).toBeTruthy();
   });
 
