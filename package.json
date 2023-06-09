@@ -5,6 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "gh-build": "ng build --configuration github --base-href /todo-frontend/",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },

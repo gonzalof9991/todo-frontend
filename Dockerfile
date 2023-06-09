@@ -1,51 +1,31 @@
-# Create an image to Angular
-# Base image
-FROM node:latest
+ARG WORK_DIR=/build
 
-# Create a directory for the app
-WORKDIR /usr/src/app
+FROM node:latest as builder
 
-# Copy package.json file to the container
-COPY package.json .
+ARG WORK_DIR
+ENV PATH ${WORK_DIR}/node_modules/.bin:$PATH
 
-# Install dependencies
+RUN mkdir ${WORK_DIR}
+WORKDIR ${WORK_DIR}
+
+COPY package.json ${WORK_DIR}
+COPY package-lock.json ${WORK_DIR}
+
+RUN npm install @angular/cli
 RUN npm install
 
-# Copy app files to the container
-COPY . .
+COPY . ${WORK_DIR}
 
-# Build the app
-RUN npm run build --prod
+RUN ng build --prod
 
-# Expose the port
-EXPOSE 4200
+FROM nginx:latest
 
-# Run the app
-CMD ["npm", "start"]
+ARG WORK_DIR
 
-# Build the image
-# docker build -t <image-name> .
+COPY --from=builder ${WORK_DIR}/dist/angular-crash /usr/share/nginx/html
 
-# Run the image
-# docker run -p 4200:4200 <image-name>
+COPY ./nginx/nginx.conf /etc/nginx/conf.d/default.conf
 
-# Run the image in background
-# docker run -p 4200:4200 -d <image-name>
+EXPOSE 80
 
-# Run the image with a name
-# docker run -p 4200:4200 -d --name <container-name> <image-name>
-
-# Stop the container
-# docker stop <container-name>
-
-# Start the container
-# docker start <container-name>
-
-# Remove the container
-# docker rm <container-name>
-
-# Remove all containers
-# docker rm $(docker ps -a -q)
-
-# Remove all images
-# docker rmi $(docker images -q)
+CMD nginx -g "daemon off;"
