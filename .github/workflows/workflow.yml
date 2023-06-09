@@ -11,9 +11,6 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    container:
-      image: node:latest
-      options: --user root --group root
     resources:
       cpu: 2
       memory: 4GB
