@@ -37,7 +37,7 @@ export class DialogComponent {
       this.dialogRef.close({event: type});
       return;
     }
-    console.log(this.data,'data');
+    this.data.completed = (this.completed === 'true') ? true : false;
     this.dialogRef.close({event: type, data: this.data});
   }
 

@@ -9,6 +9,7 @@ import {MatButtonModule} from "@angular/material/button";
 import {MatDialog} from "@angular/material/dialog";
 import {DialogComponent} from "../dialog/dialog.component";
 import {DialogModule} from "../dialog/dialog.module";
+import {DataService} from "../../services/data.service";
 
 @Component({
   selector: 'task',
@@ -22,10 +23,10 @@ import {DialogModule} from "../dialog/dialog.module";
 })
 export class TaskComponent {
   @Input() task!: ITask;
-  @Output() public changeTask: any;
   public showButton: boolean = false;
   constructor(
-    private _dialog: MatDialog
+    public dialog: MatDialog,
+    private _dataService: DataService
   ) {
   }
 
@@ -42,10 +43,8 @@ export class TaskComponent {
   }
 
   public goToTask(): void {
-
     this.changeType('doing');
     this.showButton = false;
-  
   }
 
   public changeType(type: 'todo' | 'doing' | 'done'): void {
@@ -54,16 +53,18 @@ export class TaskComponent {
 
   public openDialog(): void {
     const task = {...this.task};
-    const dialogRef = this._dialog.open(DialogComponent, {
-      width: '900px',
-      data: task
+    const dialogRef = this.dialog.open(DialogComponent, {
+      width: '800px',
+      data: task,
+      disableClose: true,
+      autoFocus: false
     });
 
-    dialogRef.afterClosed().subscribe(res => {
+    dialogRef.beforeClosed().subscribe(res => {
       if (res.data) {
         this.task = res.data;
+        this._dataService.changeTask(this.task);
       }
-    
     });
 
     }
