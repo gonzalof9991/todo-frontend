@@ -3,16 +3,18 @@ import { CommonModule } from '@angular/common';
 import {DialogComponent} from "./dialog.component";
 import { SharedModule } from 'src/shared/shared.module';
 import {  MatDialogModule } from '@angular/material/dialog';
+import {ReactiveFormsModule} from "@angular/forms";
 
 
 @NgModule({
   declarations: [
     DialogComponent
   ],
-  imports: [
-    SharedModule,
-    MatDialogModule
-  ],
+    imports: [
+        SharedModule,
+        MatDialogModule,
+        ReactiveFormsModule
+    ],
   exports: [
     DialogComponent
   ]

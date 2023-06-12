@@ -9,6 +9,7 @@ import {MatButtonModule} from "@angular/material/button";
 import {MatDialog} from "@angular/material/dialog";
 import {DialogComponent} from "../dialog/dialog.component";
 import {DialogModule} from "../dialog/dialog.module";
+// @ts-ignore
 import {DataService} from "../../services/data.service";
 
 @Component({
@@ -49,13 +50,23 @@ export class TaskComponent {
 
   public changeType(type: 'todo' | 'doing' | 'done'): void {
     this.task.type = type;
+    this._dataService.changeTask(this.task);
   }
 
   public openDialog(): void {
     const task = {...this.task};
     const dialogRef = this.dialog.open(DialogComponent, {
       width: '800px',
-      data: task,
+      data: {
+        title: 'Edit Task',
+        task,
+        options: {
+          buttons: {
+            cancel: 'Cancel',
+            save: 'Save'
+          }
+        }
+      },
       disableClose: true,
       autoFocus: false
     });

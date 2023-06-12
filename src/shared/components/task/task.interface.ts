@@ -1,7 +1,7 @@
 
 
 export interface ITask {
-    categories:     ICategory[];
+    categories?:     ICategory[];
     completed:      boolean;
     completed_time: number | null;
     created_at:     Date | string | null;
@@ -11,7 +11,7 @@ export interface ITask {
     title:          string;
     priority:       string;
     type:           string;
-    updated_at:     Date | string | null;
+    updated_at?:     Date | string | null;
 }
 
 export interface ICategory {

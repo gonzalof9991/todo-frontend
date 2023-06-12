@@ -1,8 +1,15 @@
 <div class="flex flex-col justify-start shadow-lg rounded-lg">
   <div class="flex bg-indigo-600 justify-center items-start rounded-t-lg px-3 py-3">
-    <span class="mr-1 text-xl text-white font-medium" [matBadge]="tasks.length" matBadgeColor="accent"  >{{
+    <span class="mr-1 text-xl text-white font-medium" [matBadge]="tasks.length" matBadgeColor="accent">{{
       title
       }}</span>
+  </div>
+  <!-- Create Task -->
+  <div *ngIf="type === 'todo'" >
+    <button mat-stroked-button color="primary" (click)="openDialog()" class="w-full h-full c-button c-button--border-none c-button--py-4">
+      <mat-icon>add</mat-icon>
+      Nueva Tarea
+    </button>
   </div>
   <!-- contenedor de task -->
   <div *ngIf="tasks.length >= 1">
