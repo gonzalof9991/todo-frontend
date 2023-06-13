@@ -87,11 +87,4 @@ describe('ContentComponent', () => {
 
 
 });
-
-// como puedo hacer para que se haga el merge una vez que se complete todo en el CI de github
-/*
-Require status checks to pass before merging
-Choose which status checks must pass before branches can be merged into a branch that matches this rule. When enabled, commits must first be pushed to another branch, then merged or pushed directly to a branch that matches this rule after status checks have passed.
-Require branches to be up to date before merging
-This ensures pull requests targeting a matching branch have been tested with the latest code. This setting will not take effect unless at least one status check is enabled (see below).
- */
+// test
