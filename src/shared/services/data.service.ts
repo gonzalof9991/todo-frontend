@@ -12,10 +12,8 @@ export class DataService {
 
   constructor() {
     if (localStorage.getItem('tasks')) {
-      console.log('dentro')
       this.tasks = JSON.parse(localStorage.getItem('tasks') || '{}');
     }else{
-      console.log('fuera')
       localStorage.setItem('tasks', JSON.stringify(taskMock));
       this.tasks = taskMock;
     }

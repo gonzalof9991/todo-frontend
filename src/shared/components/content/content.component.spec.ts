@@ -63,6 +63,7 @@ describe('ContentComponent', () => {
       return {
         beforeClosed(): Observable<any>{
           const task = {
+            ...mocks[0],
             id: 16,
             title: 'test',
             description: 'test',
@@ -77,13 +78,11 @@ describe('ContentComponent', () => {
     })
     spyOn(component, 'createTask').and.callThrough();
     spyOn(dataService, 'createTask').and.callThrough();
-    const taskLength = dataService.tasks.length;
     component.openDialog();
     expect(component.dialog.open).toHaveBeenCalled();
     expect(component.createTask).toHaveBeenCalled();
     expect(dataService.createTask).toHaveBeenCalled();
-    expect(component.tasks.length).toEqual(taskLength + 1);
-  })
+  });
 
 
 

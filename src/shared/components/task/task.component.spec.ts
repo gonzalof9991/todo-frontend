@@ -52,6 +52,7 @@ describe('TaskComponent', () => {
     expect(component.task.type).toEqual('doing');
     component.changeType('done');
     expect(component.task.type).toEqual('done');
+    component.task.completed = false;
     component.changeType('todo');
     expect(component.task.type).toEqual('todo');
   });
@@ -125,8 +126,5 @@ describe('TaskComponent', () => {
     expect(component.dialog.open).toHaveBeenCalled();
     expect(component.task.estimated_time).toEqual(90);
   })
-
-
-// comentario 2
 
 });

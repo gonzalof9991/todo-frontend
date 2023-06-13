@@ -51,6 +51,8 @@ export class ContentComponent {
   }
 
   public createTask(task: ITask): void {
+    const newId = this.tasks.length + 1;
+    task.id = newId;
     this._dataService.createTask(task);
   }
 
