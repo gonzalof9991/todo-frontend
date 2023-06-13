@@ -8,7 +8,7 @@
     "gh-build": "ng build --configuration github --base-href /todo-frontend/",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "test:ci": "ng test --browsers=ChromeHeadless"
+    "test:ci": "ng test --watch=false --browsers=ChromeHeadless"
   },
   "private": true,
   "dependencies": {
