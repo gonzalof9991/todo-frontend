@@ -11,7 +11,13 @@ export class DataService {
   private _tasks$: Subject<ITask[]> = new Subject<ITask[]>();
 
   constructor() {
-    this.tasks = taskMock;
+    if (localStorage.getItem('tasks')) {
+      this.tasks = JSON.parse(localStorage.getItem('tasks') || '{}');
+    }else{
+      localStorage.setItem('tasks', JSON.stringify(taskMock));
+      this.tasks = taskMock;
+    }
+
   }
 
   get getTasks(): ITask[] {
@@ -22,12 +28,27 @@ export class DataService {
     return this._tasks$.asObservable();
   }
 
+  public createTask(task: ITask): void {
+    if (this.validateTask(task)) {
+      return;
+    }
+    this.tasks.push(task);
+    this._tasks$.next(this.tasks);
+    localStorage.setItem('tasks', JSON.stringify(this.tasks));
+  }
+
+  public validateTask(task: ITask): boolean {
+    const findTask = this.tasks.find((t) => t.id === task.id);
+    return !!findTask;
+  }
+
   public changeTask(task: ITask): void {
     const index = this.tasks.findIndex((t) => t.id === task.id);
     if (index !== -1) {
       this.verifyTask(task)
       this.tasks[index] = task;
       this._tasks$.next(this.tasks);
+      localStorage.setItem('tasks', JSON.stringify(this.tasks));
     }
   }
 

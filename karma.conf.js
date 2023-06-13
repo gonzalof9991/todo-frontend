@@ -32,9 +32,9 @@ module.exports = function (config) {
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,
-    autoWatch: false, // Desactiva la opción de vigilancia para entornos de CI
+    autoWatch: true, // Desactiva la opción de vigilancia para entornos de CI
     browsers: ['ChromeHeadless'], // Utiliza ChromeHeadless para ejecutar las pruebas sin cabeza en CI
-    singleRun: true, // Configuración de ejecución única para entornos de CI
+    singleRun: false, // Configuración de ejecución única para entornos de CI
     restartOnFileChange: true
   });
 };
