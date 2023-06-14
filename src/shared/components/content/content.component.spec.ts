@@ -83,8 +83,5 @@ describe('ContentComponent', () => {
     expect(component.createTask).toHaveBeenCalled();
     expect(dataService.createTask).toHaveBeenCalled();
   });
-
-
-
 });
-// test 2
+
