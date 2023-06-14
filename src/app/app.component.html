@@ -9,13 +9,17 @@
     <h1 class="text-2xl font-bold bg-indigo-800 text-white p-2 rounded-lg">TODO LIST APP</h1>
   </div>
   <!-- Comment -->
-  <div class="grid grid-cols-3 gap-4 mt-5 xs:grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3  2xl:grid-cols-3 ">
+  <div
+    class="grid grid-cols-3 gap-4 mt-5 xs:grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3  2xl:grid-cols-3 ">
     <!-- TODO -->
-    <app-content [title]="'Todo'" type="todo" [tasks]="tasks | filterArray: 'type': 'todo' " ></app-content>
+    <app-content [title]="'Todo'" type="todo" [tasks]="tasks | filterArray: 'type': 'todo' "
+                 [categories]="categories"></app-content>
     <!-- DOING -->
-    <app-content [title]="'Doing'" type="doing" [tasks]="tasks | filterArray: 'type': 'doing' " ></app-content>
+    <app-content [title]="'Doing'" type="doing" [tasks]="tasks | filterArray: 'type': 'doing' "
+                 [categories]="categories"></app-content>
     <!-- DONE -->
-    <app-content [title]="'Done'" type="done" [tasks]="tasks | filterArray: 'type': 'done' " ></app-content>
+    <app-content [title]="'Done'" type="done" [tasks]="tasks | filterArray: 'type': 'done' "
+                 [categories]="categories"></app-content>
   </div>
 
 </main>

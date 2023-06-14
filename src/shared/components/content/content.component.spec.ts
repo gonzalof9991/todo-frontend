@@ -3,7 +3,7 @@ import {HttpClientTestingModule} from "@angular/common/http/testing";
 import {NO_ERRORS_SCHEMA} from "@angular/core";
 import {SharedModule} from "../../shared.module";
 import {AppModule} from "../../../app/app.module";
-import {taskMock} from "../../../mock/task";
+import {taskMock} from "../../../mock/mock";
 import {MatDialog} from "@angular/material/dialog";
 import {Observable, of} from "rxjs";
 import {DataService} from "../../services/data.service";

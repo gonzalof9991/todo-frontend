@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {ITask} from "../shared/components/task/task.interface";
+import {ICategory, ITask} from "../shared/components/task/task.interface";
 import { HttpClient } from '@angular/common/http';
 import {DataService} from "../shared/services/data.service";
 
@@ -11,7 +11,7 @@ import {DataService} from "../shared/services/data.service";
 export class AppComponent implements OnInit{
   title = 'frontend';
   public tasks: ITask[] = [];
-
+  public categories: ICategory[] = [];
   constructor(
     private _http: HttpClient,
     private _dataService: DataService
@@ -24,6 +24,7 @@ export class AppComponent implements OnInit{
     this._dataService.getObservable().subscribe((tasks) => {
       this.tasks = tasks;
     });
+    this.categories = this._dataService.getCategories;
 
   }
 }

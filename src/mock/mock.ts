@@ -84,3 +84,47 @@ export const taskMock = [
     "updated_at": null
   }
 ];
+export const categoryMock = [
+  {
+    "created_at": "2023-05-27T03:32:47.045279",
+    "description": null,
+    "id": 1,
+    "name": "Curso",
+    "updated_at": null
+  },
+  {
+    "created_at": "2023-05-27T03:32:47.045279",
+    "description": null,
+    "id": 2,
+    "name": "UX",
+    "updated_at": null
+  },
+  {
+    "created_at": "2023-05-27T03:32:47.045279",
+    "description": null,
+    "id": 3,
+    "name": "UI",
+    "updated_at": null
+  },
+  {
+    "created_at": "2023-05-27T03:32:47.045279",
+    "description": null,
+    "id": 4,
+    "name": "Deporte",
+    "updated_at": null
+  },
+  {
+    "created_at": "2023-05-27T03:32:47.045279",
+    "description": null,
+    "id": 5,
+    "name": "Estudios",
+    "updated_at": null
+  },
+  {
+    "created_at": "2023-05-27T03:32:47.045279",
+    "description": null,
+    "id": 6,
+    "name": "Lectura",
+    "updated_at": null
+  }
+]

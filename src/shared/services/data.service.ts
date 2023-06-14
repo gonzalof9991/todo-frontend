@@ -1,13 +1,17 @@
 import {Injectable} from '@angular/core';
-import {ITask} from "../components/task/task.interface";
-import {taskMock} from "../../mock/task";
+import {ICategory, ITask} from "../components/task/task.interface";
+import {categoryMock, taskMock} from "../../mock/mock";
 import {Observable, Subject} from "rxjs";
-
+export interface IOptionsValidate {
+  array: string;
+  comparator: string;
+}
 @Injectable({
   providedIn: 'root'
 })
 export class DataService {
   public tasks: ITask[] = [];
+  public categories: ICategory[] = [];
   private _tasks$: Subject<ITask[]> = new Subject<ITask[]>();
 
   constructor() {
@@ -18,18 +22,37 @@ export class DataService {
       this.tasks = taskMock;
     }
 
+    if (localStorage.getItem('categories')) {
+      this.categories = JSON.parse(localStorage.getItem('categories') || '{}');
+    }else{
+      localStorage.setItem('categories', JSON.stringify(categoryMock));
+      this.categories = categoryMock;
+    }
+
   }
 
   get getTasks(): ITask[] {
     return this.tasks;
   }
 
+  get getCategories(): ICategory[] {
+    return this.categories;
+  }
+
   public getObservable(): Observable<ITask[]> {
     return this._tasks$.asObservable();
   }
 
+  public createCategory(category: ICategory): void {
+    if (this.validateItem(category, {array:'categories',comparator: 'id'})) {
+      return;
+    }
+    this.categories.push(category);
+    localStorage.setItem('categories', JSON.stringify(this.categories));
+  }
+
   public createTask(task: ITask): void {
-    if (this.validateTask(task)) {
+    if (this.validateItem(task, {array:'tasks',comparator: 'id'})) {
       return;
     }
     this.tasks.push(task);
@@ -37,9 +60,10 @@ export class DataService {
     localStorage.setItem('tasks', JSON.stringify(this.tasks));
   }
 
-  public validateTask(task: ITask): boolean {
-    const findTask = this.tasks.find((t) => t.id === task.id);
-    return !!findTask;
+  public validateItem(item: any, options: IOptionsValidate): boolean {
+    // @ts-ignore
+    const findItem = this[options.array].find((t) => t[options.comparator] === item[options.comparator]);
+    return !!findItem;
   }
 
   public changeTask(task: ITask): void {
