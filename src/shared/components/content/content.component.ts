@@ -3,7 +3,7 @@ import {CommonModule} from '@angular/common';
 import {IContent} from "./content.interface";
 import {PipeModule} from "../../pipes/pipe.module";
 import {TaskComponent} from "../task/task.component";
-import {ITask} from "../task/task.interface";
+import {ICategory, ITask} from "../task/task.interface";
 import {MatBadgeModule} from "@angular/material/badge";
 import {SharedModule} from "../../shared.module";
 import {MatDialog} from "@angular/material/dialog";
@@ -20,6 +20,7 @@ import {DataService} from "../../services/data.service";
 })
 export class ContentComponent {
   @Input() tasks!: ITask[];
+  @Input() categories!: ICategory[];
   @Input() title!: string;
   @Input() type!: 'todo' | 'doing' | 'done';
 
