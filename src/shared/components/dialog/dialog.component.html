@@ -1,6 +1,6 @@
 
 <div mat-dialog-content [formGroup]="form">
-  <div class="flex justify-start items-center gap-1">
+  <div class="flex justify-start items-center gap-1 xs:flex-col sm:flex-col md:flex-row">
     <div class="font-medium text-xl text-indigo-800  rounded-lg w-max mr-5">
       {{data.title}}
     </div>
@@ -18,7 +18,7 @@
     </div>
   </div>
   <mat-divider></mat-divider>
-  <div class="grid grid-cols-2 gap-2 mt-5">
+  <div class="grid grid-cols-2 gap-2 mt-5 xs:grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2  2xl:grid-cols-2">
     <mat-form-field>
       <mat-label>Titulo</mat-label>
       <input matInput  formControlName="title">
@@ -31,7 +31,7 @@
     </mat-form-field>
   </div>
   <mat-divider ></mat-divider>
-  <div class="grid grid-cols-2 gap-2 mt-5">
+  <div class="grid grid-cols-2 gap-2 mt-5 xs:grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2  2xl:grid-cols-2">
     <mat-form-field appearance="fill">
       <mat-label>Completado</mat-label>
       <mat-select formControlName="completed" >
@@ -49,7 +49,7 @@
     </mat-form-field>
   </div>
   <mat-divider ></mat-divider>
-  <div class="grid grid-cols-2 gap-2 mt-5">
+  <div class="grid grid-cols-2 gap-2 mt-5 xs:grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2  2xl:grid-cols-2">
     <mat-form-field>
       <mat-label>Tiempo estimado (min)</mat-label>
       <input matInput type="number" formControlName="estimatedTime" >
@@ -69,11 +69,11 @@
 
 </div>
 <div mat-dialog-actions>
-  <div class="w-full flex justify-end items-center gap-2">
-    <button  mat-flat-button color="basic" class="w-1/4" (click)="close('cancel')">{{
+  <div class="w-full flex justify-end items-center gap-2 xs:flex-col sm:flex-row md:flex-row">
+    <button  mat-flat-button color="basic" class="w-1/4 xs:w-full sm:w-1/2 md:w-1/4" (click)="close('cancel')">{{
       data.options!.buttons.cancel
       }}</button>
-    <button mat-flat-button color="primary" class="w-1/4" (click)="close('save')" cdkFocusInitial>{{
+    <button mat-flat-button color="primary" class="w-1/4 xs:w-full sm:w-1/2 md:w-1/4" (click)="close('save')" cdkFocusInitial>{{
       data.options!.buttons.save
       }}</button>
   </div>
