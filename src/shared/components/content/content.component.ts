@@ -34,22 +34,24 @@ export class ContentComponent {
     const dialogRef = this.dialog.open(DialogComponent, {
       width: '800px',
       data: {
-        title: 'Create Task', task: { type: 'todo'}, options: {
+        title: 'Create Task', task: { type: 'todo'}, goingToCreate: true , options: {
           buttons: {
-            cancel: 'Cancel',
-            save: 'Create'
+            cancel: 'Cerrar',
+            save: 'Crear'
           }
         }
       },
       disableClose: true,
     });
-    dialogRef.beforeClosed().subscribe((result: { event: 'cancel' | 'save', data: ITask }) => {
+    dialogRef.beforeClosed().subscribe((result: { event: 'cancel' | 'save' | 'delete', data: ITask }) => {
       if (result.event === 'cancel') {
         return;
       }
       this.createTask(result.data);
     });
   }
+
+
 
   public createTask(task: ITask): void {
     const newId = this.tasks.length + 1;

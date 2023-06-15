@@ -60,6 +60,15 @@ export class DataService {
     localStorage.setItem('tasks', JSON.stringify(this.tasks));
   }
 
+  public deleteTask(task: ITask): void {
+    const index = this.tasks.findIndex((t) => t.id === task.id);
+    if (index !== -1) {
+      this.tasks.splice(index, 1);
+      this._tasks$.next(this.tasks);
+      localStorage.setItem('tasks', JSON.stringify(this.tasks));
+    }
+  }
+
   public validateItem(item: any, options: IOptionsValidate): boolean {
     // @ts-ignore
     const findItem = this[options.array].find((t) => t[options.comparator] === item[options.comparator]);

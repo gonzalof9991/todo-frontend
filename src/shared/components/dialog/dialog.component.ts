@@ -9,6 +9,7 @@ import {DataService} from "../../services/data.service";
 export interface IDialogData {
   title: string;
   task: ITask;
+  goingToCreate ?: boolean;
   options?: {
     buttons: {
       cancel: string;
@@ -84,11 +85,17 @@ export class DialogComponent {
 
 
 
-  public close(type: 'cancel' | 'save'): void {
+  public close(type: 'cancel' | 'save' | 'delete'): void {
     if (type === 'cancel') {
       this.dialogRef.close({event: type});
       return;
     }
+
+    if (type === 'delete') {
+      this.dialogRef.close({event: type});
+      return;
+    }
+
     this.validate();
     if (!this.validate()) {
       return;

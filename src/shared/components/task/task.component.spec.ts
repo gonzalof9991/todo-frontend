@@ -127,4 +127,30 @@ describe('TaskComponent', () => {
     expect(component.task.estimated_time).toEqual(90);
   })
 
+  it('Debe abrir el dialog y luego eliminar la tarea', () => {
+    // @ts-ignore
+    spyOn(component.dialog, 'open').and.callFake(() => {
+      return {
+        beforeClosed(): Observable<any>{
+          const task = {
+            ...taskMock,
+          }
+          return of({
+            event: 'delete',
+            data: task
+          })
+        }
+      }
+    })
+    spyOn(component, 'deleteTask').and.callThrough();
+    spyOn(dataService, 'deleteTask').and.callThrough();
+    const tasksBefore = dataService.getTasks;
+    component.openDialog();
+    expect(component.dialog.open).toHaveBeenCalled();
+    expect(component.deleteTask).toHaveBeenCalled();
+    expect(dataService.deleteTask).toHaveBeenCalled();
+    const taskAfter = dataService.getTasks;
+    expect(tasksBefore.length).toBe(taskAfter.length);
+  });
+
 });
