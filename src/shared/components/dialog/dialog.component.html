@@ -1,15 +1,23 @@
 
 <div mat-dialog-content [formGroup]="form">
-  <div class="flex justify-start items-center gap-1 xs:flex-col sm:flex-col md:flex-row">
-    <div class="font-medium text-xl text-indigo-800  rounded-lg w-max mr-5">
-      {{data.title}}
-    </div>
-    <mat-chip-listbox aria-label="Fish selection" formControlName="type">
-      <mat-chip-option value="todo">Todo</mat-chip-option>
-      <mat-chip-option value="doing" >Doing</mat-chip-option>
-      <mat-chip-option value="done">Done</mat-chip-option>
+  <div class="flex justify-between items-center gap-1 xs:flex-col justify-start items-center sm:flex-row justify-between items-center md:flex-row justify-between items-center lg:flex flex-row justify-between items-center">
+    <div>
+      <div class="font-medium text-xl text-indigo-800  rounded-lg w-max mr-5">
+        {{data.title}}
+      </div>
+      <mat-chip-listbox aria-label="Fish selection" formControlName="type">
+        <mat-chip-option value="todo">Todo</mat-chip-option>
+        <mat-chip-option value="doing" >Doing</mat-chip-option>
+        <mat-chip-option value="done">Done</mat-chip-option>
 
-    </mat-chip-listbox>
+      </mat-chip-listbox>
+    </div>
+    <div *ngIf="!data.goingToCreate" class="xs:hidden sm:block md:block">
+      <button mat-mini-fab color="warn" aria-label="Example icon button with a delete icon" matTooltip="Eliminar Tarea" (click)="close('delete')">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </div>
+
   </div>
 
   <div class="mt-1 mb-3 flex justify-start items-center gap-2">
@@ -84,6 +92,9 @@
     <button  mat-flat-button color="basic" class="w-1/4 xs:w-full sm:w-1/2 md:w-1/4" (click)="close('cancel')">{{
       data.options!.buttons.cancel
       }}</button>
+    <div class="xs:w-full sm:hidden md:hidden" *ngIf="!data.goingToCreate">
+      <button mat-flat-button color="warn" class="w-1/4 xs:w-full sm:w-full md:w-1/4" (click)="close('delete')" cdkFocusInitial>Eliminar</button>
+    </div>
     <button mat-flat-button color="primary" class="w-1/4 xs:w-full sm:w-1/2 md:w-1/4" (click)="close('save')" cdkFocusInitial>{{
       data.options!.buttons.save
       }}</button>

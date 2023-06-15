@@ -14,6 +14,7 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatSelectModule} from '@angular/material/select';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatChipsModule} from '@angular/material/chips';
+import {MatTooltipModule} from "@angular/material/tooltip";
 @NgModule({
   imports: [
 
@@ -33,7 +34,8 @@ import {MatChipsModule} from '@angular/material/chips';
     MatDatepickerModule,
     MatSelectModule,
     MatDividerModule,
-    MatChipsModule
+    MatChipsModule,
+    MatTooltipModule
   ]
 })
 export class SharedModule { }

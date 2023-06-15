@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import {DialogComponent} from "./dialog.component";
 import { SharedModule } from 'src/shared/shared.module';
 import {  MatDialogModule } from '@angular/material/dialog';
@@ -13,7 +12,7 @@ import {ReactiveFormsModule} from "@angular/forms";
     imports: [
         SharedModule,
         MatDialogModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
     ],
   exports: [
     DialogComponent

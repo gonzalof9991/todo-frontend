@@ -62,8 +62,8 @@ export class TaskComponent {
         task,
         options: {
           buttons: {
-            cancel: 'Cancel',
-            save: 'Save'
+            cancel: 'Cerrar',
+            save: 'Guardar'
           }
         }
       },
@@ -72,6 +72,10 @@ export class TaskComponent {
     });
 
     dialogRef.beforeClosed().subscribe(res => {
+      if (res.event === 'delete'){
+        this.deleteTask(this.task);
+        return;
+      }
       if (res.data) {
         this.task = res.data;
         this._dataService.changeTask(this.task);
@@ -79,6 +83,10 @@ export class TaskComponent {
     });
 
     }
+
+  public deleteTask(task: ITask): void {
+    this._dataService.deleteTask(task);
+  }
 
 
 }
