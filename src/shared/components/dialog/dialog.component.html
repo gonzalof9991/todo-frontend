@@ -1,103 +1,105 @@
+<div class="w-full h-full">
+  <div mat-dialog-content [formGroup]="form">
+    <div class="flex justify-between items-center gap-1 xs:flex-col justify-start items-center sm:flex-row justify-between items-center md:flex-row justify-between items-center lg:flex flex-row justify-between items-center">
+      <div>
+        <div class="font-medium text-xl text-indigo-800  rounded-lg w-max mr-5">
+          {{data.title}}
+        </div>
+        <mat-chip-listbox aria-label="Fish selection" formControlName="type">
+          <mat-chip-option value="todo">Todo</mat-chip-option>
+          <mat-chip-option value="doing" >Doing</mat-chip-option>
+          <mat-chip-option value="done">Done</mat-chip-option>
 
-<div mat-dialog-content [formGroup]="form">
-  <div class="flex justify-between items-center gap-1 xs:flex-col justify-start items-center sm:flex-row justify-between items-center md:flex-row justify-between items-center lg:flex flex-row justify-between items-center">
-    <div>
-      <div class="font-medium text-xl text-indigo-800  rounded-lg w-max mr-5">
-        {{data.title}}
+        </mat-chip-listbox>
       </div>
-      <mat-chip-listbox aria-label="Fish selection" formControlName="type">
-        <mat-chip-option value="todo">Todo</mat-chip-option>
-        <mat-chip-option value="doing" >Doing</mat-chip-option>
-        <mat-chip-option value="done">Done</mat-chip-option>
+      <div *ngIf="!data.goingToCreate" class="xs:hidden sm:block md:block">
+        <button mat-mini-fab color="warn" aria-label="Example icon button with a delete icon" matTooltip="Eliminar Tarea" (click)="close('delete')">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </div>
 
-      </mat-chip-listbox>
-    </div>
-    <div *ngIf="!data.goingToCreate" class="xs:hidden sm:block md:block">
-      <button mat-mini-fab color="warn" aria-label="Example icon button with a delete icon" matTooltip="Eliminar Tarea" (click)="close('delete')">
-        <mat-icon>delete</mat-icon>
-      </button>
     </div>
 
-  </div>
-
-  <div class="mt-1 mb-3 flex justify-start items-center gap-2">
-    <div *ngFor="let category of data.task.categories" class="text-white text-xs px-2 py-1 font-medium rounded-lg bg-indigo-800 w-max">
-      {{category.name}}
+    <div class="mt-1 mb-3 flex justify-start items-center gap-2">
+      <div *ngFor="let category of data.task.categories" class="text-white text-xs px-2 py-1 font-medium rounded-lg bg-indigo-800 w-max">
+        {{category.name}}
+      </div>
     </div>
-  </div>
-  <mat-divider></mat-divider>
-  <div class="grid grid-cols-2 gap-2 mt-5 xs:grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2  2xl:grid-cols-2">
-    <mat-form-field>
-      <mat-label>Titulo</mat-label>
-      <input matInput  formControlName="title">
-    </mat-form-field>
-    <mat-form-field appearance="fill">
-      <mat-label>Fecha creación</mat-label>
-      <input matInput [matDatepicker]="picker" formControlName="createdDate">
-      <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-      <mat-datepicker #picker></mat-datepicker>
-    </mat-form-field>
-  </div>
-  <mat-divider ></mat-divider>
-  <div class="grid grid-cols-2 gap-2 mt-5 xs:grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2  2xl:grid-cols-2">
-    <mat-form-field appearance="fill">
-      <mat-label>Completado</mat-label>
-      <mat-select formControlName="completed" >
-        <mat-option value="true">Si</mat-option>
-        <mat-option value="false">No</mat-option>
-      </mat-select>
-    </mat-form-field>
-    <mat-form-field appearance="fill">
-      <mat-label>Prioridad</mat-label>
-      <mat-select  formControlName="priority">
-        <mat-option value="low">Baja</mat-option>
-        <mat-option value="medium">Media</mat-option>
-        <mat-option value="high">Alta</mat-option>
-      </mat-select>
-    </mat-form-field>
-  </div>
-  <mat-divider ></mat-divider>
-  <div class="grid grid-cols-2 gap-2 mt-5 xs:grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2  2xl:grid-cols-2">
-    <mat-form-field>
-      <mat-label>Tiempo estimado (min)</mat-label>
-      <input matInput type="number" formControlName="estimatedTime" >
-    </mat-form-field>
-    <mat-form-field>
-      <mat-label>Tiempo completado (min)</mat-label>
-      <input matInput type="number" formControlName="completedTime" maxlength="5" max="1000" min="1">
-    </mat-form-field>
-  </div>
-  <mat-divider class="my-2"></mat-divider>
-  <div class="grid grid-cols-1 gap-2 mt-5">
-    <mat-form-field appearance="fill">
-      <mat-label>Categorías</mat-label>
-      <mat-select multiple formControlName="categories">
-        <mat-option [value]="category" *ngFor="let category of categories" >
-          {{category.name}}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
-  </div>
-  <mat-divider class="my-2"></mat-divider>
-  <div class="grid grid-cols-1 gap-2 mt-5">
-    <mat-form-field>
-      <mat-label>Descripción</mat-label>
-      <textarea matInput formControlName="description" placeholder="Escribe una descripción..."></textarea>
-    </mat-form-field>
-  </div>
+    <mat-divider></mat-divider>
+    <div class="grid grid-cols-2 gap-2 mt-5 xs:grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2  2xl:grid-cols-2">
+      <mat-form-field>
+        <mat-label>Titulo</mat-label>
+        <input matInput  formControlName="title">
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Fecha creación</mat-label>
+        <input matInput [matDatepicker]="picker" formControlName="createdDate">
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+    </div>
+    <mat-divider ></mat-divider>
+    <div class="grid grid-cols-2 gap-2 mt-5 xs:grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2  2xl:grid-cols-2">
+      <mat-form-field appearance="fill">
+        <mat-label>Completado</mat-label>
+        <mat-select formControlName="completed" >
+          <mat-option value="true">Si</mat-option>
+          <mat-option value="false">No</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Prioridad</mat-label>
+        <mat-select  formControlName="priority">
+          <mat-option value="low">Baja</mat-option>
+          <mat-option value="medium">Media</mat-option>
+          <mat-option value="high">Alta</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <mat-divider ></mat-divider>
+    <div class="grid grid-cols-2 gap-2 mt-5 xs:grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2  2xl:grid-cols-2">
+      <mat-form-field>
+        <mat-label>Tiempo estimado (min)</mat-label>
+        <input matInput type="number" formControlName="estimatedTime" >
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Tiempo completado (min)</mat-label>
+        <input matInput type="number" formControlName="completedTime" maxlength="5" max="1000" min="1">
+      </mat-form-field>
+    </div>
+    <mat-divider class="my-2"></mat-divider>
+    <div class="grid grid-cols-1 gap-2 mt-5">
+      <mat-form-field appearance="fill">
+        <mat-label>Categorías</mat-label>
+        <mat-select multiple formControlName="categories">
+          <mat-option [value]="category" *ngFor="let category of categories" >
+            {{category.name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <mat-divider class="my-2"></mat-divider>
+    <div class="grid grid-cols-1 gap-2 mt-5">
+      <mat-form-field>
+        <mat-label>Descripción</mat-label>
+        <textarea matInput formControlName="description" placeholder="Escribe una descripción..."></textarea>
+      </mat-form-field>
+    </div>
 
+  </div>
+  <div mat-dialog-actions>
+    <div class="w-full flex justify-end items-center gap-2 xs:flex-col sm:flex-row md:flex-row">
+      <button  mat-flat-button color="basic" class="w-1/4 xs:w-full sm:w-1/2 md:w-1/4" (click)="close('cancel')">{{
+        data.options!.buttons.cancel
+        }}</button>
+      <div class="xs:w-full sm:hidden md:hidden" *ngIf="!data.goingToCreate">
+        <button mat-flat-button color="warn" class="w-1/4 xs:w-full sm:w-full md:w-1/4" (click)="close('delete')" cdkFocusInitial>Eliminar</button>
+      </div>
+      <button mat-flat-button color="primary" class="w-1/4 xs:w-full sm:w-1/2 md:w-1/4" (click)="close('save')" cdkFocusInitial>{{
+        data.options!.buttons.save
+        }}</button>
+    </div>
+
+  </div>
 </div>
-<div mat-dialog-actions>
-  <div class="w-full flex justify-end items-center gap-2 xs:flex-col sm:flex-row md:flex-row">
-    <button  mat-flat-button color="basic" class="w-1/4 xs:w-full sm:w-1/2 md:w-1/4" (click)="close('cancel')">{{
-      data.options!.buttons.cancel
-      }}</button>
-    <div class="xs:w-full sm:hidden md:hidden" *ngIf="!data.goingToCreate">
-      <button mat-flat-button color="warn" class="w-1/4 xs:w-full sm:w-full md:w-1/4" (click)="close('delete')" cdkFocusInitial>Eliminar</button>
-    </div>
-    <button mat-flat-button color="primary" class="w-1/4 xs:w-full sm:w-1/2 md:w-1/4" (click)="close('save')" cdkFocusInitial>{{
-      data.options!.buttons.save
-      }}</button>
-  </div>
 
-</div>

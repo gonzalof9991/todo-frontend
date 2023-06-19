@@ -68,7 +68,8 @@ export class TaskComponent {
         }
       },
       disableClose: true,
-      autoFocus: false
+      autoFocus: false,
+      panelClass: ['c-dialog', 'c-dialog--xs-full-screen']
     });
 
     dialogRef.beforeClosed().subscribe(res => {

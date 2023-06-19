@@ -1,0 +1,14 @@
+.c-dialog {
+  &--xs-full-screen {
+    @media screen and (max-width: 640px) {
+      max-width: 100% !important;
+      height: 100% !important;
+      .mat-mdc-dialog-content {
+        max-height: none !important;
+      }
+    }
+
+  }
+}
+
+
