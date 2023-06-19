@@ -84,6 +84,5 @@ describe('ContentComponent', () => {
     expect(dataService.createTask).toHaveBeenCalled();
   });
 
-
 });
 
