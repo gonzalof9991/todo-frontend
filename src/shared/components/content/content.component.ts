@@ -9,7 +9,6 @@ import {SharedModule} from "../../shared.module";
 import {MatDialog} from "@angular/material/dialog";
 import {DialogComponent, IDialogData} from "../dialog/dialog.component";
 import {DataService} from "../../services/data.service";
-import * as moment from 'moment';
 @Component({
   selector: 'app-content',
   standalone: true,
