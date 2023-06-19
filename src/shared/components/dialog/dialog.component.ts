@@ -1,15 +1,10 @@
 import {Component, Inject} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
-import {MomentDateAdapter, MAT_MOMENT_DATE_ADAPTER_OPTIONS} from '@angular/material-moment-adapter';
 import {ICategory, ITask} from '../task/task.interface';
-import {
-  DateAdapter,
-  MAT_DATE_FORMATS,
-  MAT_DATE_LOCALE,
-} from '@angular/material/core';
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {DateAdapter, MAT_DATE_FORMATS, MAT_NATIVE_DATE_FORMATS, NativeDateAdapter} from '@angular/material/core';
+import {FormBuilder, FormGroup, ValidatorFn, Validators} from "@angular/forms";
+import {of} from "rxjs";
 import {DataService} from "../../services/data.service";
-import * as moment from "moment";
 
 export interface IDialogData {
   title: string;
@@ -22,33 +17,24 @@ export interface IDialogData {
     }
   }
 }
+
 export const MY_FORMATS = {
-  parse: {
-    dateInput: 'DD/MM/YYYY',
-  },
   display: {
-    dateInput: 'DD/MM/YYYY',
-    monthYearLabel: 'DD MMM YYYY',
+    dateInput: 'dd-MM-yyyy',
+    monthYearLabel: 'dd MMM YYYY',
     dateA11yLabel: 'LL',
-    monthYearA11yLabel: 'DD MMMM YYYY',
+    monthYearA11yLabel: 'dd MMMM YYYY',
   },
 };
+
 @Component({
   selector: 'app-dialog',
   templateUrl: './dialog.component.html',
   styleUrls: ['./dialog.component.scss'],
   providers: [
-    // `MomentDateAdapter` can be automatically provided by importing `MomentDateModule` in your
-    // application's root module. We provide it at the component level here, due to limitations of
-    // our example generation script.
-    {
-      provide: DateAdapter,
-      useClass: MomentDateAdapter,
-      deps: [MAT_DATE_LOCALE, MAT_MOMENT_DATE_ADAPTER_OPTIONS],
-    },
-
-    {provide: MAT_DATE_FORMATS, useValue: MY_FORMATS},
-  ],
+    {provide: DateAdapter, useClass: NativeDateAdapter},
+    {provide: MAT_DATE_FORMATS, useValue: MY_FORMATS}
+  ]
 })
 export class DialogComponent {
   public title: string = 'Edit Task';
@@ -75,15 +61,15 @@ export class DialogComponent {
       completed: [this.data.task.completed, Validators.required],
       createdDate: [this.data.task.created_at, Validators.required],
     });
-
     this.form.get('completed')?.setValue(this.completed);
     this.defaultDate();
+
     this.loadCategories();
   }
 
-  public defaultDate(): void {
+  public defaultDate(): void{
     if (this.data.goingToCreate){
-      this.form.get('createdDate')?.setValue(moment());
+      this.form.get('createdDate')?.setValue(new Date());
     }
   }
 
