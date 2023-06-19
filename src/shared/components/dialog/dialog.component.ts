@@ -62,8 +62,15 @@ export class DialogComponent {
       createdDate: [this.data.task.created_at, Validators.required],
     });
     this.form.get('completed')?.setValue(this.completed);
+    this.defaultDate();
 
     this.loadCategories();
+  }
+
+  public defaultDate(): void{
+    if (this.data.goingToCreate){
+      this.form.get('createdDate')?.setValue(new Date());
+    }
   }
 
 
