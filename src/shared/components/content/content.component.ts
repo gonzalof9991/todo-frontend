@@ -42,6 +42,7 @@ export class ContentComponent {
         }
       },
       disableClose: true,
+      panelClass: ['c-dialog', 'c-dialog--xs-full-screen']
     });
     dialogRef.beforeClosed().subscribe((result: { event: 'cancel' | 'save' | 'delete', data: ITask }) => {
       if (result.event === 'cancel') {
