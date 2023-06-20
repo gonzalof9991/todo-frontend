@@ -76,7 +76,7 @@ export class DataService {
   public validateItem(item: any, options: IOptionsValidate): boolean {
     // @ts-ignore
     const findItem = this[options.array].find((t) => t[options.comparator] === item[options.comparator]);
-    return !!findItem;
+    return findItem?.length > 0;
   }
 
   public changeTask(task: ITask): void {
