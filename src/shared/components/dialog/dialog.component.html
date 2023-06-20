@@ -89,13 +89,13 @@
   </div>
   <div mat-dialog-actions>
     <div class="w-full flex justify-end items-center gap-2 xs:flex-col sm:flex-row md:flex-row">
-      <button  mat-flat-button color="basic" class="w-1/4 xs:w-full sm:w-1/2 md:w-1/4" (click)="close('cancel')">{{
+      <button  mat-flat-button color="basic" class="w-1/4 xs:w-full !py-6 sm:w-1/2 md:w-1/4" (click)="close('cancel')">{{
         data.options!.buttons.cancel
         }}</button>
       <div class="xs:w-full sm:hidden md:hidden" *ngIf="!data.goingToCreate">
-        <button mat-flat-button color="warn" class="w-1/4 xs:w-full sm:w-full md:w-1/4" (click)="close('delete')" cdkFocusInitial>Eliminar</button>
+        <button mat-flat-button color="warn" class="w-1/4 xs:w-full !py-6 sm:w-full md:w-1/4" (click)="close('delete')" cdkFocusInitial>Eliminar</button>
       </div>
-      <button mat-flat-button color="primary" class="w-1/4 xs:w-full sm:w-1/2 md:w-1/4" (click)="close('save')" cdkFocusInitial>{{
+      <button mat-flat-button color="primary" class="w-1/4 xs:w-full !py-6 sm:w-1/2 md:w-1/4" (click)="close('save')" cdkFocusInitial>{{
         data.options!.buttons.save
         }}</button>
     </div>

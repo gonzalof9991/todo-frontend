@@ -22,12 +22,16 @@ export class DataService {
       this.tasks = taskMock;
     }
 
+    /*
     if (localStorage.getItem('categories')) {
       this.categories = JSON.parse(localStorage.getItem('categories') || '{}');
     }else{
       localStorage.setItem('categories', JSON.stringify(categoryMock));
       this.categories = categoryMock;
     }
+
+     */
+    this.categories = categoryMock;
 
   }
 

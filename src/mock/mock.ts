@@ -126,5 +126,12 @@ export const categoryMock = [
     "id": 6,
     "name": "Lectura",
     "updated_at": null
+  },
+  {
+    "created_at": "2023-05-27T03:32:47.045279",
+    "description": null,
+    "id": 7,
+    "name": "Proyecto",
+    "updated_at": null
   }
 ]
