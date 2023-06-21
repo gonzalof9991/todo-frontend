@@ -1,15 +1,13 @@
 <!-- HEADER -->
-<header class="container mx-auto">
-</header>
-<!-- NAVBAR -->
-<nav class="container mx-auto">
-</nav>
-<main class=" mx-10  py-2">
+<header class="container mx-auto bg-indigo-800 my-3">
   <div class="flex justify-center items-center  ">
     <h1 class="text-2xl font-bold bg-indigo-800 text-white p-2 rounded-lg">TODO LIST APP</h1>
   </div>
-  <!-- Comment -->
-  <div class="mt-5 gap-2 flex flex-col w-full  md:flex-row md:w-full lg:flex-row lg:w-full xl:flex-row xl:w-1/2 ">
+</header>
+<!-- NAVBAR -->
+<nav class="container mx-auto">
+  <!-- Status -->
+  <div class="my-3 gap-2 flex flex-col w-full  md:flex-row md:w-full lg:flex-row lg:w-full xl:flex-row xl:w-1/2 ">
     <div class="w-full flex justify-center items-center  rounded-lg bg-green-400 py-2">
       <span class="text-green-700 font-bold ">Prioridad Baja</span>
     </div>
@@ -21,6 +19,18 @@
     </div>
 
   </div>
+  <div class="flex flex-col gap-2 justify-between items-center shadow-lg py-3 px-3 md:flex-row lg:flew-row: xxl:flew-row">
+    <div class="w-full md:w-1/2 lg:w-1/2  xxl:w-1/2 ">
+      <input placeholder="Buscador" class="w-full rounded-lg p-2" type="text">
+    </div>
+    <div class="w-full md:w-1/3 lg:w-1/6  xxl:w-1/6 ">
+      <button mat-stroked-button color="primary" class="w-full">Buscar</button>
+    </div>
+  </div>
+
+</nav>
+<main class=" container mx-auto">
+
   <div
     class="grid grid-cols-3 gap-4 mt-5 xs:grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3  2xl:grid-cols-3 ">
     <!-- TODO -->
