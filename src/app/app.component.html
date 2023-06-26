@@ -1,13 +1,13 @@
 <!-- HEADER -->
-<header class="container mx-auto bg-indigo-800 my-3">
+<header class="container mx-auto bg-indigo-600">
   <div class="flex justify-center items-center  ">
-    <h1 class="text-2xl font-bold bg-indigo-800 text-white p-2 rounded-lg">TODO LIST APP</h1>
+    <span class="text-2xl font-bold text-white p-2 rounded-lg">TODOAPP</span>
   </div>
 </header>
 <!-- NAVBAR -->
 <nav class="container mx-auto">
   <!-- Status -->
-  <div class="my-3 gap-2 flex flex-col w-full  md:flex-row md:w-full lg:flex-row lg:w-full xl:flex-row xl:w-1/2 ">
+  <div class="my-3 gap-2 flex flex-col w-full  md:flex-row md:w-full lg:flex-row lg:w-full xl:flex-row xl:w-1/3 ">
     <div class="w-full flex justify-center items-center  rounded-lg bg-green-400 py-2">
       <span class="text-green-700 font-bold ">Prioridad Baja</span>
     </div>
@@ -19,7 +19,9 @@
     </div>
 
   </div>
-  <div class="flex flex-col gap-2 justify-between items-center shadow-lg py-3 px-3 md:flex-row lg:flew-row: xxl:flew-row">
+  <!-- Search -->
+  <div
+    class="flex hidden flex-col gap-2 justify-between items-center shadow-lg py-3 px-3 md:flex-row lg:flew-row: xxl:flew-row">
     <div class="w-full md:w-1/2 lg:w-1/2  xxl:w-1/2 ">
       <input placeholder="Buscador" class="w-full rounded-lg p-2" type="text">
     </div>
@@ -29,10 +31,10 @@
   </div>
 
 </nav>
-<main class=" container mx-auto">
+<main class=" container mx-auto mb-5">
 
   <div
-    class="grid grid-cols-3 gap-4 mt-5 xs:grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3  2xl:grid-cols-3 ">
+    class="grid grid-cols-3 gap-4 mt-5 xs:grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3  2xl:grid-cols-3  ">
     <!-- TODO -->
     <app-content [title]="'Todo'" type="todo" [tasks]="tasks | filterArray: 'type': 'todo' "
                  [categories]="categories"></app-content>
@@ -45,7 +47,8 @@
   </div>
 
 </main>
-<footer class="bg-blue-900 hidden   w-full text-center py-10 ">
+<footer class="bg-indigo-800     h-full text-center py-10 mt-10">
   <span class="text-white text-sm font-medium">versión 1.0.1</span>
 </footer>
+
 
